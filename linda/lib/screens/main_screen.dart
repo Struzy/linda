@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:linda/classes/daytime_list.dart';
 import 'dart:math';
 import 'package:linda/classes/image_path.dart';
 import 'package:linda/classes/image_list.dart';
 import 'package:linda/classes/saying.dart';
 import 'package:linda/classes/saying_list.dart';
+import '../constants/font_family.dart';
+import '../constants/font_size.dart';
+import '../constants/image.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -14,7 +18,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20.0),
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -23,8 +27,8 @@ class MainScreen extends StatelessWidget {
                 child: Text(
                   getGreeting(),
                   style: const TextStyle(
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 12,
+                    fontFamily: kSourceSansPro,
+                    fontSize: kFontsizeSubtitle,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -34,8 +38,8 @@ class MainScreen extends StatelessWidget {
                 child: Text(
                   'Linda Broghammer',
                   style: TextStyle(
-                    fontFamily: 'Pacifico',
-                    fontSize: 12,
+                    fontFamily: kPacifico,
+                    fontSize: kFontsizeTitle,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -45,15 +49,15 @@ class MainScreen extends StatelessWidget {
                 child: Text(
                   'Einen wunderschönen Tag Dir!',
                   style: TextStyle(
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 12,
+                    fontFamily: kSourceSansPro,
+                    fontSize: kFontsizeSubtitle,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
               CircleAvatar(
-                radius: 100.0,
+                radius: kRadius,
                 backgroundImage: AssetImage(
                   getImagePath().path,
                 ),
@@ -62,8 +66,8 @@ class MainScreen extends StatelessWidget {
                 child: Text(
                   '${getSaying().text} - ${getSaying().author}',
                   style: const TextStyle(
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 12,
+                    fontFamily: kSourceSansPro,
+                    fontSize: kFontsizeQuote,
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                   ),
@@ -76,52 +80,51 @@ class MainScreen extends StatelessWidget {
     );
   }
 
+  // Generate a random number within the provided number of images and return
+  // its value
   int getRandomNumber(int number) {
     int value = Random().nextInt(number);
     return value;
   }
 
+  // Create an object of DaytimeList and return the greeting with respect to the
+  // daytime
   String getGreeting() {
-    final now = DateTime.now();
-    final morningBegin = DateTime(now.year, now.month, now.day, 6, 0, 0, 0);
-    final morningEnd = DateTime(now.year, now.month, now.day, 10, 0, 0, 0);
-    final forenoonBegin = DateTime(now.year, now.month, now.day, 10, 0, 0, 0);
-    final forenoonEnd = DateTime(now.year, now.month, now.day, 12, 0, 0, 0);
-    final noonBegin = DateTime(now.year, now.month, now.day, 12, 0, 0, 0);
-    final noonEnd = DateTime(now.year, now.month, now.day, 14, 0, 0, 0);
-    final afternoonBegin = DateTime(now.year, now.month, now.day, 14, 0, 0, 0);
-    final afternoonEnd = DateTime(now.year, now.month, now.day, 18, 0, 0, 0);
-    final eveningBegin = DateTime(now.year, now.month, now.day, 18, 0, 0, 0);
-    final eveningEnd = DateTime(now.year, now.month, now.day, 22, 0, 0, 0);
-    final nightBegin = DateTime(now.year, now.month, now.day, 22, 0, 0, 0);
-    final nightEnd = DateTime(now.year, now.month, now.day, 6, 0, 0, 0);
+    DaytimeList daytimes = DaytimeList();
 
     String greeting = '';
 
-    if (now.hour >= morningBegin.hour && now.hour < morningEnd.hour) {
+    if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.morningBegin.hour &&
+        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.morningEnd.hour) {
       greeting = 'Guten Morgen';
-    } else if (now.hour >= forenoonBegin.hour && now.hour < forenoonEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.forenoonBegin.hour &&
+        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.forenoonEnd.hour) {
       greeting = 'Guten Vormittag';
-    } else if (now.hour >= noonBegin.hour && now.hour < noonEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.noonBegin.hour &&
+        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.noonEnd.hour) {
       greeting = 'Guten Mittag';
-    } else if (now.hour >= afternoonBegin.hour &&
-        now.hour < afternoonEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.afternoonBegin.hour &&
+        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.afternoonEnd.hour) {
       greeting = 'Guten Nachmittag';
-    } else if (now.hour >= eveningBegin.hour && now.hour < eveningEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.eveningBegin.hour &&
+        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.eveningEnd.hour) {
       greeting = 'Guten Abend';
-    } else if (now.hour >= nightBegin.hour && now.hour < nightEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.nightBegin.hour &&
+        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.nightEnd.hour) {
       greeting = 'Gute Nacht';
     }
 
     return greeting;
   }
 
+  // Create an object of type ImagePath and return a random one
   ImagePath getImagePath() {
     ImageList images = ImageList();
 
     return images.imgList[getRandomNumber(images.imgList.length)];
   }
 
+  // Create an object of type SayingList and return a random one
   Saying getSaying() {
     SayingList sayings = SayingList();
 
