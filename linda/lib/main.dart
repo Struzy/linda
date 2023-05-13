@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:linda/screens/main_screen.dart';
+import 'constants/color.dart';
 import 'screens/splash_screen.dart';
 
 void main() => runApp(
-  const Linda(),
-);
+      const Linda(),
+    );
 
 class Linda extends StatelessWidget {
   const Linda({super.key});
@@ -13,10 +14,12 @@ class Linda extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: const Color(0xFF559A56),
-        scaffoldBackgroundColor: const Color(0xFF7DAB76),
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kSecondaryColor,
         textTheme: const TextTheme(
-          bodyText1: TextStyle(color: Colors.white),
+          bodyText1: TextStyle(
+            color: Colors.white,
+          ),
         ),
       ),
       initialRoute: SplashScreen.id,

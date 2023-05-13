@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'main_screen.dart';
@@ -11,38 +12,50 @@ class SplashScreen extends StatefulWidget {
   SplashScreenState createState() => SplashScreenState();
 }
 
-class SplashScreenState extends State<SplashScreen>
-    with TickerProviderStateMixin {
-  late AnimationController controller;
+class SplashScreenState extends State<SplashScreen> {
+  late Timer timer;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-      duration: const Duration(
-        seconds: 10,
-      ),
-      vsync: this,
+    timer = Timer(
+      const Duration(seconds: 10),
+      () => navigateToMainScreen(),
     );
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Lottie.asset(
-        'animations/splash_animation.json',
-        controller: controller,
-        height: MediaQuery.of(context).size.height * 100,
-        width: MediaQuery.of(context).size.width * 100,
-        animate: true,
-        onLoaded: (composition) {
-          controller
-            ..duration = composition.duration
-            ..forward().whenComplete(
-                  () => Navigator.pushNamed(context, MainScreen.id),
-            );
-        },
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Lottie.asset(
+              'animations/reveal_loading.json',
+              width: 300,
+              height: 300,
+            ),
+            Lottie.asset(
+              'animations/loading_text.json',
+              width: 300,
+              height: 300,
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  // After displaying the lottie animation for the desired duration one will be
+  // directed to the main screen
+  void navigateToMainScreen() {
+    Navigator.pushNamed(context, MainScreen.id);
   }
 }

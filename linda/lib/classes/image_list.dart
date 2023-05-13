@@ -2,58 +2,156 @@ import 'image_path.dart';
 
 class ImageList {
   List<ImagePath> imgList = [
-    ImagePath(path: 'images/image1.JPG'),
-    ImagePath(path: 'images/image2.JPEG'),
-    ImagePath(path: 'images/image3.JPG'),
-    ImagePath(path: 'images/image4.JPG'),
-    ImagePath(path: 'images/image5.JPG'),
-    ImagePath(path: 'images/image6.JPG'),
-    ImagePath(path: 'images/image7.JPG'),
-    ImagePath(path: 'images/image8.JPG'),
-    ImagePath(path: 'images/image9.JPG'),
-    ImagePath(path: 'images/image10.JPG'),
-    ImagePath(path: 'images/image11.JPG'),
-    ImagePath(path: 'images/image12.JPG'),
-    ImagePath(path: 'images/image13.JPG'),
-    ImagePath(path: 'images/image14.JPG'),
-    ImagePath(path: 'images/image15.JPG'),
-    ImagePath(path: 'images/image16.JPG'),
-    ImagePath(path: 'images/image17.JPG'),
-    /*ImagePath(path: 'images/image18.PNG'),
-    ImagePath(path: 'images/image19.PNG'),
-    ImagePath(path: 'images/image20.PNG'),
-    ImagePath(path: 'images/image21.PNG'),
-    ImagePath(path: 'images/image22.PNG'),
-    ImagePath(path: 'images/image23.PNG'),
-    ImagePath(path: 'images/image24.PNG'),
-    ImagePath(path: 'images/image25.PNG'),
-    ImagePath(path: 'images/image26.PNG'),
-    ImagePath(path: 'images/image27.PNG'),
-    ImagePath(path: 'images/image28.PNG'),
-    ImagePath(path: 'images/image29.PNG'),
-    ImagePath(path: 'images/image30.PNG'),
-    ImagePath(path: 'images/image31.PNG'),
-    ImagePath(path: 'images/image32.PNG'),
-    ImagePath(path: 'images/image33.PNG'),
-    ImagePath(path: 'images/image34.PNG'),
-    ImagePath(path: 'images/image35.PNG'),
-    ImagePath(path: 'images/image36.PNG'),
-    ImagePath(path: 'images/image37.PNG'),
-    ImagePath(path: 'images/image38.PNG'),
-    ImagePath(path: 'images/image39.PNG'),
-    ImagePath(path: 'images/image40.PNG'),
-    ImagePath(path: 'images/image41.PNG'),
-    ImagePath(path: 'images/image42.PNG'),
-    ImagePath(path: 'images/image43.PNG'),
-    ImagePath(path: 'images/image44.PNG'),
-    ImagePath(path: 'images/image45.PNG'),
-    ImagePath(path: 'images/image46.PNG'),
-    ImagePath(path: 'images/image47.PNG'),
-    ImagePath(path: 'images/image48.PNG'),
-    ImagePath(path: 'images/image49.PNG'),
-    ImagePath(path: 'images/image50.PNG'),
-    ImagePath(path: 'images/image51.PNG'),
-    ImagePath(path: 'images/image52.PNG'),
-    ImagePath(path: 'images/image53.PNG'),*/
+    ImagePath(
+      path: 'images/image1.png',
+    ),
+    ImagePath(
+      path: 'images/image2.png',
+    ),
+    ImagePath(
+      path: 'images/image3.png',
+    ),
+    ImagePath(
+      path: 'images/image4.png',
+    ),
+    ImagePath(
+      path: 'images/image5.png',
+    ),
+    ImagePath(
+      path: 'images/image6.png',
+    ),
+    ImagePath(
+      path: 'images/image7.png',
+    ),
+    ImagePath(path: 'images/image8.png'),
+    ImagePath(
+      path: 'images/image9.png',
+    ),
+    ImagePath(
+      path: 'images/image10.png',
+    ),
+    ImagePath(path: 'images/image11.png'),
+    ImagePath(
+      path: 'images/image12.png',
+    ),
+    ImagePath(
+      path: 'images/image13.png',
+    ),
+    ImagePath(
+      path: 'images/image14.png',
+    ),
+    ImagePath(
+      path: 'images/image15.png',
+    ),
+    ImagePath(
+      path: 'images/image16.png',
+    ),
+    ImagePath(
+      path: 'images/image17.png',
+    ),
+    ImagePath(
+      path: 'images/image18.png',
+    ),
+    ImagePath(
+      path: 'images/image19.png',
+    ),
+    ImagePath(
+      path: 'images/image20.png',
+    ),
+    ImagePath(
+      path: 'images/image21.png',
+    ),
+    ImagePath(path: 'images/image22.png'),
+    ImagePath(
+      path: 'images/image23.png',
+    ),
+    ImagePath(
+      path: 'images/image24.png',
+    ),
+    ImagePath(
+      path: 'images/image25.png',
+    ),
+    ImagePath(
+      path: 'images/image26.png',
+    ),
+    ImagePath(
+      path: 'images/image27.png',
+    ),
+    ImagePath(
+      path: 'images/image28.png',
+    ),
+    ImagePath(
+      path: 'images/image29.png',
+    ),
+    ImagePath(
+      path: 'images/image30.png',
+    ),
+    ImagePath(
+      path: 'images/image31.png',
+    ),
+    ImagePath(
+      path: 'images/image32.png',
+    ),
+    ImagePath(
+      path: 'images/image33.png',
+    ),
+    ImagePath(
+      path: 'images/image34.png',
+    ),
+    ImagePath(
+      path: 'images/image35.png',
+    ),
+    ImagePath(
+      path: 'images/image36.png',
+    ),
+    ImagePath(path: 'images/image37.png'),
+    ImagePath(
+      path: 'images/image38.png',
+    ),
+    ImagePath(
+      path: 'images/image39.png',
+    ),
+    ImagePath(
+      path: 'images/image40.png',
+    ),
+    ImagePath(
+      path: 'images/image41.png',
+    ),
+    ImagePath(
+      path: 'images/image42.png',
+    ),
+    ImagePath(
+      path: 'images/image43.png',
+    ),
+    ImagePath(
+      path: 'images/image44.png',
+    ),
+    ImagePath(
+      path: 'images/image45.png',
+    ),
+    ImagePath(
+      path: 'images/image46.png',
+    ),
+    ImagePath(
+      path: 'images/image47.png',
+    ),
+    ImagePath(
+      path: 'images/image48.png',
+    ),
+    ImagePath(
+      path: 'images/image49.png',
+    ),
+    ImagePath(
+      path: 'images/image50.png',
+    ),
+    ImagePath(
+      path: 'images/image51.png',
+    ),
+    ImagePath(
+      path: 'images/image52.png',
+    ),
+    ImagePath(
+      path: 'images/image53.png',
+    ),
   ];
 }

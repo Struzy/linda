@@ -18,7 +18,9 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(
+          20.0,
+        ),
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,23 +96,35 @@ class MainScreen extends StatelessWidget {
 
     String greeting = '';
 
-    if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.morningBegin.hour &&
-        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.morningEnd.hour) {
+    if (daytimes.daytimeList.first.now.hour >=
+            daytimes.daytimeList.first.morningBegin.hour &&
+        daytimes.daytimeList.first.now.hour <
+            daytimes.daytimeList.first.morningEnd.hour) {
       greeting = 'Guten Morgen';
-    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.forenoonBegin.hour &&
-        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.forenoonEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >=
+            daytimes.daytimeList.first.forenoonBegin.hour &&
+        daytimes.daytimeList.first.now.hour <
+            daytimes.daytimeList.first.forenoonEnd.hour) {
       greeting = 'Guten Vormittag';
-    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.noonBegin.hour &&
-        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.noonEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >=
+            daytimes.daytimeList.first.noonBegin.hour &&
+        daytimes.daytimeList.first.now.hour <
+            daytimes.daytimeList.first.noonEnd.hour) {
       greeting = 'Guten Mittag';
-    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.afternoonBegin.hour &&
-        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.afternoonEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >=
+            daytimes.daytimeList.first.afternoonBegin.hour &&
+        daytimes.daytimeList.first.now.hour <
+            daytimes.daytimeList.first.afternoonEnd.hour) {
       greeting = 'Guten Nachmittag';
-    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.eveningBegin.hour &&
-        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.eveningEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >=
+            daytimes.daytimeList.first.eveningBegin.hour &&
+        daytimes.daytimeList.first.now.hour <
+            daytimes.daytimeList.first.eveningEnd.hour) {
       greeting = 'Guten Abend';
-    } else if (daytimes.daytimeList.first.now.hour >= daytimes.daytimeList.first.nightBegin.hour &&
-        daytimes.daytimeList.first.now.hour < daytimes.daytimeList.first.nightEnd.hour) {
+    } else if (daytimes.daytimeList.first.now.hour >=
+            daytimes.daytimeList.first.nightBegin.hour &&
+        daytimes.daytimeList.first.now.hour <
+            daytimes.daytimeList.first.nightEnd.hour) {
       greeting = 'Gute Nacht';
     }
 
