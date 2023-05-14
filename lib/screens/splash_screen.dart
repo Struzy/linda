@@ -19,7 +19,7 @@ class SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     timer = Timer(
-      const Duration(seconds: 10),
+      const Duration(seconds: 5),
       () => navigateToMainScreen(),
     );
   }
@@ -32,22 +32,24 @@ class SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Lottie.asset(
-              'animations/reveal_loading.json',
-              width: 300,
-              height: 300,
-            ),
-            Lottie.asset(
-              'animations/loading_text.json',
-              width: 300,
-              height: 300,
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Lottie.asset(
+                'animations/reveal_loading.json',
+                width: 300,
+                height: 300,
+              ),
+              Lottie.asset(
+                'animations/loading_text.json',
+                width: 300,
+                height: 300,
+              ),
+            ],
+          ),
         ),
       ),
     );

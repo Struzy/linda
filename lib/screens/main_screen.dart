@@ -5,77 +5,109 @@ import 'package:linda/classes/image_path.dart';
 import 'package:linda/classes/image_list.dart';
 import 'package:linda/classes/saying.dart';
 import 'package:linda/classes/saying_list.dart';
+import 'package:linda/constants/color.dart';
 import '../constants/font_family.dart';
 import '../constants/font_size.dart';
 import '../constants/image.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
   static const String id = 'main_screen';
 
   @override
+  MainScreenState createState() => MainScreenState();
+}
+
+class MainScreenState extends State<MainScreen> {
+  final GlobalKey<RefreshIndicatorState> refreshIndicatorKey =
+      GlobalKey<RefreshIndicatorState>();
+
+  Future<void> refresh() async {
+    Navigator.pushNamed(context, MainScreen.id);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(
-          20.0,
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(
+            20.0,
+          ),
+          child: RefreshIndicator(
+            key: refreshIndicatorKey,
+            color: Colors.black,
+            backgroundColor: kPrimaryColor,
+            strokeWidth: 4.0,
+            onRefresh: refresh,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Center(
+                  child: Text(
+                    getGreeting(),
+                    style: const TextStyle(
+                      fontSize: kFontsizeSubtitle,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const Center(
+                  child: Text(
+                    'Linda Broghammer',
+                    style: TextStyle(
+                      fontFamily: kPacifico,
+                      fontSize: kFontsizeTitle,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const Center(
+                  child: Text(
+                    'Einen wunderschönen Tag Dir!',
+                    style: TextStyle(
+                      fontSize: kFontsizeSubtitle,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                CircleAvatar(
+                  radius: kRadius,
+                  backgroundImage: AssetImage(
+                    getImagePath().path,
+                  ),
+                ),
+                const Divider(
+                  color: Colors.black54,
+                  thickness: 3.0,
+                ),
+                Center(
+                  child: Text(
+                    '${getSaying().text} - ${getSaying().author}',
+                    style: const TextStyle(
+                      fontSize: kFontsizeQuote,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
+                const Divider(
+                  color: Colors.black54,
+                  thickness: 3.0,
+                  endIndent: 75.0,
+                ),
+              ],
+            ),
+          ),
         ),
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Center(
-                child: Text(
-                  getGreeting(),
-                  style: const TextStyle(
-                    fontFamily: kSourceSansPro,
-                    fontSize: kFontsizeSubtitle,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const Center(
-                child: Text(
-                  'Linda Broghammer',
-                  style: TextStyle(
-                    fontFamily: kPacifico,
-                    fontSize: kFontsizeTitle,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const Center(
-                child: Text(
-                  'Einen wunderschönen Tag Dir!',
-                  style: TextStyle(
-                    fontFamily: kSourceSansPro,
-                    fontSize: kFontsizeSubtitle,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: kRadius,
-                backgroundImage: AssetImage(
-                  getImagePath().path,
-                ),
-              ),
-              Center(
-                child: Text(
-                  '${getSaying().text} - ${getSaying().author}',
-                  style: const TextStyle(
-                    fontFamily: kSourceSansPro,
-                    fontSize: kFontsizeQuote,
-                    color: Colors.black,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ),
-            ],
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            refreshIndicatorKey.currentState?.show();
+          },
+          foregroundColor: Colors.black,
+          backgroundColor: kPrimaryColor,
+          child: const Icon(
+            Icons.refresh,
           ),
         ),
       ),
